@@ -1,8 +1,25 @@
 import React, {Component} from 'react'
 import Header from './Header'
 import PostList from './PostList'
-import Form from './Form'
+// import Form from './Form'
 import $ from 'jquery'
+
+const style = {
+  wrapper: {
+    displaly: 'flex',
+    width: '70%',
+    border: '5px solid red',
+    justifyContent: 'center'
+  },
+  form: {
+    display: 'flex',
+    padding: '30px',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+
+  }
+}
 
 class App extends Component {
   state = {
@@ -49,11 +66,19 @@ class App extends Component {
   updateCaption = (e) => this.setState({ caption: e.target.value})
 
 
+
   render () {
     return (
-      <div>
+      <div style={style.wrapper}>
         <Header />
-        <Form />
+        <form style={style.form}>
+          <label>Insert Post Title:</label>
+          <input type='text' onChange={this.updateTitle} />
+
+          <label>Insert Image Caption:</label>
+          <input type='text' onChange={this.updateCaption} />
+          <button onClick={this.submitPostToServer}>Submit Post</button>
+        </form>
         {
           this.state.posts
           ? <PostList posts={this.state.posts}/>
