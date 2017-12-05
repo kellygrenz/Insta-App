@@ -8,13 +8,15 @@ const style = {
     justifyContent: 'center'
   },
   h3: {
-    color: '#E4F1FE'
+    color: '#fff',
+    fontFamily: 'Pacifico, cursive',
+    fontSize: '35px'
   }
 }
 
 const Header = () => 
   <div  style={style.container}>
-    <h3 style={style.h3}>Polar-Gram!</h3>
+    <h3 style={style.h3}>Gram-Gram!</h3>
   </div>
 
   export default Header

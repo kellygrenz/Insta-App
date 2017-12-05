@@ -1,11 +1,24 @@
 import React from 'react'
 
+const style = {
+  postContainer: {
+    display: 'flex',
+    background: '#FABE58',
+    alignItems: 'center',
+    flexDirection: 'column'
+
+  }
+}
+
 const PostList = ({ posts }) => {
   return (
-    <div>
+    <div style={style.postContainer}>
       {
         posts.map((item, index) => {
-          return <p key={index}> {item.title} {item.caption} </p>
+          return <div key={index}> 
+                    <h1>{item.title}</h1> 
+                    <h3>{item.caption}</h3> 
+                  </div>
             
         })
       }

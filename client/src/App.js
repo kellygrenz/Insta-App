@@ -5,11 +5,19 @@ import PostList from './PostList'
 import $ from 'jquery'
 
 const style = {
+  bg: {
+    background: '#a2ded0',
+    padding: '50px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   wrapper: {
     displaly: 'flex',
     width: '70%',
-    border: '5px solid red',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'white'
   },
   form: {
     display: 'flex',
@@ -17,7 +25,29 @@ const style = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  label: {
+    marginTop: '20px',
+    marginBottom: '10px',
+    fontFamily: 'Abel, sans-serif',
+    fontSize: '25px'
 
+  },
+  field: {
+    padding: '15px',
+    borderRadius: '5px',
+    borderStyle: 'solid',
+    width: '60%'
+  },
+  button: {
+    marginTop: '15px',
+    width: '300px',
+    padding: '15px',
+    background: '#EC644B',
+    borderStyle: 'none',
+    color: '#fff',
+    fontFamily: 'Pacifico, cursive',
+    fontSize: '25px'
   }
 }
 
@@ -69,23 +99,25 @@ class App extends Component {
 
   render () {
     return (
-      <div style={style.wrapper}>
-        <Header />
-        <form style={style.form}>
-          <label>Insert Post Title:</label>
-          <input type='text' onChange={this.updateTitle} />
+      <div style={style.bg}>
+        <div style={style.wrapper}>
+          <Header />
+          <form style={style.form}>
+            <label style={style.label}>Insert Post Title:</label>
+            <input type='text' onChange={this.updateTitle} placeholder='insert post title here' style={style.field}/>
 
-          <label>Insert Image Caption:</label>
-          <input type='text' onChange={this.updateCaption} />
-          <button onClick={this.submitPostToServer}>Submit Post</button>
-        </form>
-        {
-          this.state.posts
-          ? <PostList posts={this.state.posts}/>
-          : 'No Posts'
-        }
-        
-        
+            <label style={style.label}>Insert Image Caption:</label>
+            <input type='text' onChange={this.updateCaption} placeholder='insert post caption here' style={style.field}/>
+            <button onClick={this.submitPostToServer} style={style.button}>Submit Post</button>
+          </form>
+          {
+            this.state.posts
+            ? <PostList posts={this.state.posts}/>
+            : 'No Posts'
+          }
+          
+          
+        </div>
       </div>
     )
   }
