@@ -15,27 +15,7 @@ app.use(require('./config/error-handler'))
 
 const firstPost = {title: 'sample post title', caption: 'image caption', img: 'url' }
 
-app.post('/api/posts', (req, res) => {
-  const {title, caption, img} = req.body
-  const newPost = {title, caption, img}
-  Post(newPost).save((err, savedPost) => {
-    if (err) {
-      res.json({ error: err})
-    } else {
-      res.json({ msg: 'SUCCESS', data: savedPost})
-    }
-  })
-})
 
-app.get('/api/posts', (req, res) => {
-  Post.find((err, posts) => {
-    if (err) {
-      res.json({ error: err})
-    } else {
-      res.json({ msg: 'SUCCESS', posts: posts})
-    }
-  })
-})
 
 const server = app.listen(port, () => console.log(`🍦 Running on port: ${port} 🍦 `))
 

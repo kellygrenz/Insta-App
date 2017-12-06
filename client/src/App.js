@@ -109,30 +109,7 @@ class App extends Component {
  
   render () {
     return (
-      <div style={style.bg}>
-        <div style={style.wrapper}>
-          <Header />
-          <form style={style.form}>
-            <label style={style.label}>Insert Post Title:</label>
-            <input type='text' onChange={this.updateTitle} placeholder='insert post title here' style={style.field}/>
-            
-              <div style={style.imgUpload}>
-                <label style={style.label}>Upload an Image</label>
-                <input type='file' onChange={this.updateImg} placeholder='click to browse images' />
-              </div>
-            <label style={style.label}>Insert Image Caption:</label>
-            <input type='text' onChange={this.updateCaption} placeholder='insert post caption here' style={style.field}/>
-            <button onClick={this.submitPostToServer} style={style.button}>Submit Post</button>
-          </form>
-          {
-            this.state.posts
-            ? <PostList posts={this.state.posts}/>
-            : 'No Posts'
-          }
-          
-          
-        </div>
-      </div>
+      <div><h1>🍕 Hello World 🍕</h1></div>
     )
   }
 }
