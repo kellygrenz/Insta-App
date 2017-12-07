@@ -1,15 +1,16 @@
 import React from 'react'
+import Post from './Post'
 
-const PostList = ({posts}) => { 
+const PostList = ({posts, deletePost}) => { 
   return (
     <div>
       {
         posts.map((item, index) => {
           return (
-            <div key={index}>
-              <p>{item.title}</p>
-              <img src={item.img} />
-            </div>
+            <Post 
+              item={item}
+              deletePost={() => deletePost(item) }
+            />
           )
         })
       }
